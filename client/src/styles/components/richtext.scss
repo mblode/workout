@@ -1,0 +1,98 @@
+// ========================================================================
+// Components – Rich Text
+// ========================================================================
+
+.richtext {
+    @apply mb-4 text-lg tracking-wider;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply mt-6;
+    }
+
+    h1 {
+        @extend .h1;
+    }
+
+    h2 {
+        @extend .h2;
+    }
+
+    h3 {
+        @extend .h3;
+    }
+
+    h4 {
+        @extend .h4;
+    }
+
+    h5 {
+        @extend .h5;
+    }
+
+    h6 {
+        @extend .h6;
+    }
+
+    blockquote {
+        @apply mb-6 text-lg;
+    }
+
+    p,
+    ul,
+    ol {
+        @apply mb-6 text-lg tracking-wider;
+    }
+
+    ul li {
+        @apply list-disc ml-6;
+
+        li {
+            list-style-type: circle;
+        }
+    }
+
+    ol li {
+        @apply list-decimal ml-6;
+
+        li {
+            list-style-type: lower-alpha;
+        }
+    }
+
+    a {
+        @extend .link-orange;
+    }
+
+    > *:last-child {
+        @apply mb-0;
+    }
+
+    img {
+        @apply my-6;
+    }
+}
+
+.small,
+.richtext.small p,
+.richtext.small ul,
+.richtext.small ol,
+.richtext.small a {
+    @apply text-sm;
+}
+
+.large,
+.richtext.large p,
+.richtext.large ul,
+.richtext.large ol,
+.richtext.large a {
+    @apply text-xl;
+
+    @screen md {
+        @apply text-3xl;
+    }
+}

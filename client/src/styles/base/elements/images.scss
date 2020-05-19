@@ -1,0 +1,13 @@
+// Elements – Images
+
+//
+// Shorthand helpers
+//
+
+.img-cover {
+    @apply bg-cover bg-no-repeat bg-center w-full h-full;
+}
+
+.img-contain {
+    @apply bg-contain bg-no-repeat bg-center w-full h-full;
+}

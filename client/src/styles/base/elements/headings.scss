@@ -1,0 +1,73 @@
+// Elements – Headings
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    @apply font-sans font-bold text-gray-800;
+
+    // Use em's so its relative to the font size
+    margin-bottom: 0.5em;
+}
+
+.title {
+    @apply font-sans font-medium;
+
+    @include fluid-type($min_width, $max_width, 44px, 156px);
+
+    letter-spacing: -2px;
+    line-height: 1.15;
+
+    @screen md {
+        letter-spacing: -6.24px;
+        line-height: 1.1;
+    }
+}
+
+.h1 {
+    @apply font-medium leading-tight tracking-tighter;
+
+    @include fluid-type($min_width, $max_width, 36px, 100px);
+}
+
+.h2 {
+    @apply font-medium leading-snug tracking-tight;
+
+    @include fluid-type($min_width, $max_width, 24px, 50px);
+
+    @screen md {
+        line-height: 1.2;
+    }
+}
+
+.h3 {
+    @apply text-2xl leading-tight font-medium;
+
+    @screen md {
+        @apply text-3xl;
+    }
+}
+
+.h4 {
+    @apply text-xl leading-snug;
+
+    @screen md {
+        @apply text-2xl;
+    }
+}
+
+.h5 {
+    @apply text-sm uppercase font-bold leading-snug;
+
+    letter-spacing: 4.45px;
+
+    @screen md {
+        @apply text-sm;
+    }
+}
+
+.h6 {
+    @apply text-base leading-snug;
+}

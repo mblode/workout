@@ -1,0 +1,74 @@
+.modal {
+    @apply fixed overflow-x-hidden overflow-y-auto w-full h-full top-0 left-0;
+    z-index: 1072;
+}
+
+.modal-dialog {
+    @apply flex relative w-auto pointer-events-none;
+    max-width: 800px;
+    margin: 0.5rem;
+    cursor: auto;
+    max-height: calc(100% - 1rem);
+
+    @screen md {
+        margin: 1.75rem auto;
+        max-height: calc(100% - 3.5rem);
+    }
+}
+
+.model-content {
+    @apply relative flex flex-col w-full pointer-events-auto;
+    max-height: calc(100% - 1rem);
+    overflow: hidden;
+
+    @screen md {
+        max-height: calc(100% - 3.5rem);
+    }
+}
+
+.modal-body {
+    @apply bg-white py-16 px-8 h-full;
+
+    overflow-y: auto;
+
+    @screen md {
+        @apply px-16;
+    }
+}
+
+.modal-backdrop {
+    @apply fixed top-0 left-0 w-screen h-screen opacity-50 bg-black cursor-pointer;
+
+    z-index: 1071;
+}
+
+.modal-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10000;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.slide-fade-enter-active {
+    transition: all 0.3s ease;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+    transform: translateY(10px);
+    opacity: 0;
+}

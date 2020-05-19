@@ -1,0 +1,39 @@
+// Components – Loading
+
+.loading {
+    @apply relative pointer-events-none;
+
+    color: transparent !important;
+    min-height: 1rem;
+
+    &::after {
+        @apply absolute block h-4 w-4 -mt-2 -ml-2 border-2 border-solid rounded-full;
+        @apply border-orange-500;
+
+        animation: loading 0.5s infinite linear;
+        border-right-color: transparent;
+        border-top-color: transparent;
+        content: '';
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+    }
+}
+
+.loading.loading-lg {
+    min-height: 2rem;
+
+    &::after {
+        @apply h-8 w-8 -mt-4 -ml-4;
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

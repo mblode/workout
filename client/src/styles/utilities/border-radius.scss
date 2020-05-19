@@ -1,0 +1,11 @@
+.rounded-flourish {
+    border-bottom-left-radius: 24px;
+
+    @screen md {
+        border-bottom-left-radius: 64px;
+    }
+
+    @screen lg {
+        border-bottom-left-radius: 128px;
+    }
+}

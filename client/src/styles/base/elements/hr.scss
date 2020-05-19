@@ -1,0 +1,9 @@
+// Elements – Horizontal Rule
+
+.hr {
+    border: 0;
+    outline: 0;
+    height: 1px;
+
+    @apply my-8 bg-gray-400;
+}

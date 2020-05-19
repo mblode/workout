@@ -1,0 +1,80 @@
+// Elements – Links
+
+.link {
+    // Resets
+    @apply underline;
+
+    // Customise
+    @apply text-gray-500;
+    @apply transition-colors duration-300 ease-in-out;
+
+    &:focus,
+    &:active,
+    &:hover {
+        @apply text-blue-900 underline outline-none;
+    }
+}
+
+.text-link {
+    // Resets
+    @apply no-underline flex items-center;
+
+    // Customise
+    @apply text-orange-500 tracking-widest text-sm font-medium uppercase;
+    @apply transition-all duration-300 ease-in-out;
+
+    &:focus,
+    &:active,
+    &:hover {
+        @apply no-underline outline-none text-orange-600;
+    }
+
+    span {
+        margin-right: 32px;
+    }
+
+    svg {
+        @apply transition-opacity duration-300 ease-in-out;
+        opacity: 0;
+        margin-bottom: 2px;
+    }
+
+    &:hover svg {
+        opacity: 1;
+    }
+}
+
+.link-orange {
+    @apply no-underline text-orange-500 transition-colors duration-300 ease-in-out text-lg;
+    letter-spacing: 0.67px;
+
+    &:focus,
+    &:active,
+    &:hover {
+        @apply text-orange-600 underline outline-none;
+    }
+}
+
+// Telephone links are coloured diffently on iOS devices
+a[href^='tel'] {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.tag-dash {
+    @apply inline-block bg-orange-500 mx-3;
+
+    width: 42px;
+    height: 1px;
+}
+
+.tag-line {
+    @apply inline-block bg-orange-500 mx-3;
+
+    width: 2px;
+    height: 14px;
+}
