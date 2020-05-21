@@ -15,8 +15,6 @@
 .title {
     @apply font-sans font-medium;
 
-    @include fluid-type($min_width, $max_width, 44px, 156px);
-
     letter-spacing: -2px;
     line-height: 1.15;
 
@@ -28,14 +26,10 @@
 
 .h1 {
     @apply font-medium leading-tight tracking-tighter;
-
-    @include fluid-type($min_width, $max_width, 36px, 100px);
 }
 
 .h2 {
     @apply font-medium leading-snug tracking-tight;
-
-    @include fluid-type($min_width, $max_width, 24px, 50px);
 
     @screen md {
         line-height: 1.2;
