@@ -1,16 +1,16 @@
 import React from 'react';
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Header from './Navigation/Header';
-import Main from './Navigation/Main';
-import Footer from './Navigation/Footer';
+import Header from './Header';
+import Routes from '../routes/index';
+import Footer from './Footer';
 
 function App() {
     return (
         <RecoilRoot>
             <Router>
                 <Header />
-                <Main />
+                <Routes />
                 <Footer />
             </Router>
         </RecoilRoot>

@@ -15,8 +15,28 @@ export default function Header() {
                             <span>Home</span>
                         </NavLink>
 
-                        <NavLink to='/beers' className='nav-link' activeClassName='active'>
-                            <span>Beers</span>
+                        <NavLink to='/workouts' className='nav-link' activeClassName='active'>
+                            <span>Workouts</span>
+                        </NavLink>
+
+                        <NavLink to='/exercises' className='nav-link' activeClassName='active'>
+                            <span>Exercises</span>
+                        </NavLink>
+
+                        <NavLink to='/routines' className='nav-link' activeClassName='active'>
+                            <span>Routines</span>
+                        </NavLink>
+
+                        <NavLink to='/settings' className='nav-link' activeClassName='active'>
+                            <span>Settings</span>
+                        </NavLink>
+
+                        <NavLink to='/sign-in' className='nav-link' activeClassName='active'>
+                            <span>Sign in</span>
+                        </NavLink>
+
+                        <NavLink to='/sign-up' className='nav-link' activeClassName='active'>
+                            <span>Sign up</span>
                         </NavLink>
                     </ul>
                 </div>

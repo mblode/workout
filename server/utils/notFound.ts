@@ -1,4 +1,4 @@
-import { Response, Request, Status } from 'https://deno.land/x/oak@v4.0.0/mod.ts';
+import { Response, Request, Status } from 'https://deno.land/x/oak/mod.ts';
 
 export default async ({ response, request }: { response: Response; request: Request }) => {
     response.status = Status.NotFound;

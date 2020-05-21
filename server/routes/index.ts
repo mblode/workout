@@ -1,48 +1,86 @@
-import { Router } from 'https://deno.land/x/oak@v4.0.0/mod.ts';
+import { Router } from 'https://deno.land/x/oak/mod.ts';
 
-import getWorkouts from '../controllers/workout/getWorkouts.ts';
-import getWorkout from '../controllers/workout/getWorkout.ts';
-import createWorkout from '../controllers/workout/createWorkout.ts';
-import updateWorkout from '../controllers/workout/updateWorkout.ts';
-import deleteWorkout from '../controllers/workout/deleteWorkout.ts';
+import { getUser, signInUser, signUpUser, updateUser, deleteUser } from '../controllers/userController.ts';
 
-import getExcersices from '../controllers/excersice/getExcersices.ts';
-import getExercis from '../controllers/excersice/getExcersice.ts';
+import {
+    getExercises,
+    getExercise,
+    createExercise,
+    updateExercise,
+    deleteExercise,
+} from '../controllers/exerciseController.ts';
 
-import getRoutines from '../controllers/routine/getRoutines.ts';
-import getRoutine from '../controllers/routine/getRoutine.ts';
-import createRoutine from '../controllers/routine/createRoutine.ts';
-import updateRoutine from '../controllers/routine/updateRoutine.ts';
-import deleteRoutine from '../controllers/routine/deleteRoutine.ts';
+import {
+    getRoutines,
+    getRoutine,
+    createRoutine,
+    updateRoutine,
+    deleteRoutine,
+} from '../controllers/routineController.ts';
 
-import getUsers from '../controllers/user/getUsers.ts';
-import getUser from '../controllers/user/getUser.ts';
-import signUpUser from '../controllers/user/signUpUser.ts';
-import signInUser from '../controllers/user/signInUser.ts';
-import updateUser from '../controllers/user/updateUser.ts';
-import deleteUser from '../controllers/user/deleteUser.ts';
+import {
+    getRoutineExercises,
+    getRoutineExercise,
+    createRoutineExercise,
+    updateRoutineExercise,
+    deleteRoutineExercise,
+} from '../controllers/routineExerciseController.ts';
+
+import {
+    getWorkouts,
+    getWorkout,
+    createWorkout,
+    updateWorkout,
+    deleteWorkout,
+} from '../controllers/workoutController.ts';
+
+import {
+    getWorkoutExercises,
+    getWorkoutExercise,
+    createWorkoutExercise,
+    updateWorkoutExercise,
+    deleteWorkoutExercise,
+} from '../controllers/workoutExerciseController.ts';
 
 const router = new Router();
 
+const api = '/api/v1/';
+
 router
-    .get('/api/v1/workouts', getWorkouts)
-    .get('/api/v1/workouts/:id', getWorkout)
-    .post('/api/v1/workouts', createWorkout)
-    .put('/api/v1/workouts/:id', updateWorkout)
-    .delete('/api/v1/workouts/:id', deleteWorkout)
-    .get('/api/v1/excersices', getExcersices)
-    .get('/api/v1/excersices/:id', getExercis)
-    .get('/api/v1/routines', getRoutines)
-    .get('/api/v1/routines/:id', getRoutine)
-    .post('/api/v1/routines', createRoutine)
-    .put('/api/v1/routines/:id', updateRoutine)
-    .delete('/api/v1/routines/:id', deleteRoutine)
-    .get('/api/v1/user', getUsers)
-    .get('/api/v1/user', getUser)
-    .get('/api/v1/user/:id', getUser)
-    .post('/api/v1/user', signUpUser)
-    .post('/api/v1/user/sign-in', signInUser)
-    .put('/api/v1/user/:id', updateUser)
-    .delete('/api/v1/user/:id', deleteUser);
+    .get(api + 'users/:id', getUser)
+    .post(api + 'users', signUpUser)
+    .post(api + 'users/sign-in', signInUser)
+    .put(api + 'users/:id', updateUser)
+    .delete(api + 'users/:id', deleteUser)
+
+    .get(api + 'exercises', getExercises)
+    .get(api + 'exercises/:id', getExercise)
+    .post(api + 'exercises', createExercise)
+    .put(api + 'exercises/:id', updateExercise)
+    .delete(api + 'exercises/:id', deleteExercise)
+
+    .get(api + 'routines', getRoutines)
+    .get(api + 'routines/:id', getRoutine)
+    .post(api + 'routines', createRoutine)
+    .put(api + 'routines/:id', updateRoutine)
+    .delete(api + 'routines/:id', deleteRoutine)
+
+    .get(api + 'routine-exercises', getRoutineExercises)
+    .get(api + 'routine-exercises/:id', getRoutineExercise)
+    .post(api + 'routine-exercises', createRoutineExercise)
+    .put(api + 'routine-exercises/:id', updateRoutineExercise)
+    .delete(api + 'routine-exercises/:id', deleteRoutineExercise)
+
+    .get(api + 'workouts', getWorkouts)
+    .get(api + 'workouts/:id', getWorkout)
+    .post(api + 'workouts', createWorkout)
+    .put(api + 'workouts/:id', updateWorkout)
+    .delete(api + 'workouts/:id', deleteWorkout)
+
+    .get(api + 'workout-exercises', getWorkoutExercises)
+    .get(api + 'workout-exercises/:id', getWorkoutExercise)
+    .post(api + 'workout-exercises', createWorkoutExercise)
+    .put(api + 'workout-exercises/:id', updateWorkoutExercise)
+    .delete(api + 'workout-exercises/:id', deleteWorkoutExercise);
 
 export default router;

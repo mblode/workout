@@ -1,4 +1,4 @@
-import { Response } from 'https://deno.land/x/oak@v4.0.0/mod.ts';
+import { Response } from 'https://deno.land/x/oak/mod.ts';
 
 export default async ({ response }: { response: Response }, next: () => Promise<void>) => {
     const start = Date.now();
