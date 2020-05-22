@@ -4,90 +4,88 @@ import { RoutineExercise } from '../types/index.ts';
 const routineexercise = db.collection('routineexercise');
 
 // Get all items
-export const getRoutineExercises = async (ctx: any) => {
+export const getRoutineExercises = async (context: any) => {
     try {
         const data: RoutineExercise[] = await routineexercise.find();
 
         if (data) {
-            ctx.response.body = data;
-            ctx.response.status = 200;
-            console.log(data);
+            context.response.body = data;
+            context.response.status = 200;
         } else {
-            ctx.response.body = 'not found';
-            ctx.response.status = 204;
+            context.response.body = 'not found';
+            context.response.status = 204;
         }
     } catch (error) {
-        ctx.response.body = null;
-        ctx.response.status = 500;
+        context.response.body = null;
+        context.response.status = 500;
         console.log(error);
     }
 };
 
 // Get item
-export const getRoutineExercise = async (ctx: any) => {
+export const getRoutineExercise = async (context: any) => {
     try {
-        const id: string = ctx.params.id;
+        const id: string = context.params.id;
 
         const data: RoutineExercise = await routineexercise.findOne({ _id: { $oid: id } });
 
         if (data) {
-            ctx.response.body = data;
-            ctx.response.status = 200;
+            context.response.body = data;
+            context.response.status = 200;
         } else {
-            ctx.response.body = 'not found';
-            ctx.response.status = 204;
+            context.response.body = 'not found';
+            context.response.status = 204;
         }
     } catch (error) {
-        ctx.response.body = null;
-        ctx.response.status = 500;
+        context.response.body = null;
+        context.response.status = 500;
         console.log(error);
     }
 };
 
 // Create item
-export const createRoutineExercise = async (ctx: any) => {
+export const createRoutineExercise = async (context: any) => {
     try {
-        let body: any = await ctx.request.body();
+        let body: any = await context.request.body();
 
         const id: RoutineExercise = await routineexercise.insertOne(body.value);
 
-        ctx.response.body = id;
-        ctx.response.status = 201;
-    } catch (e) {
-        ctx.response.body = null;
-        ctx.response.status = 500;
-        console.log(e);
+        context.response.body = id;
+        context.response.status = 201;
+    } catch (error) {
+        context.response.body = null;
+        context.response.status = 500;
+        console.log(error);
     }
 };
 
 // Update item
-export const updateRoutineExercise = async (ctx: any) => {
+export const updateRoutineExercise = async (context: any) => {
     try {
-        const id: string = ctx.params.id;
-        let body: any = await ctx.request.body();
+        const id: string = context.params.id;
+        let body: any = await context.request.body();
 
         const result: any = await routineexercise.updateOne({ _id: { $oid: id } }, { $set: body.value });
 
-        console.log(result);
-        ctx.response.body = result;
-        ctx.response.status = 200;
-    } catch (e) {
-        ctx.response.body = null;
-        ctx.response.status = 500;
-        console.log(e);
+        context.response.body = result;
+        context.response.status = 200;
+    } catch (error) {
+        context.response.body = null;
+        context.response.status = 500;
+        console.log(error);
     }
 };
 
 // Delete item
-export const deleteRoutineExercise = async (ctx: any) => {
+export const deleteRoutineExercise = async (context: any) => {
     try {
-        let id: string = ctx.params.id;
+        let id: string = context.params.id;
         const result: any = await routineexercise.deleteOne({ _id: { $oid: id } });
-        ctx.response.body = { result };
-        ctx.response.status = 200;
-    } catch (e) {
-        ctx.response.body = null;
-        ctx.response.status = 500;
-        console.log(e);
+        context.response.body = { result };
+        context.response.status = 200;
+    } catch (error) {
+        context.response.body = null;
+        context.response.status = 500;
+        console.log(error);
     }
 };
