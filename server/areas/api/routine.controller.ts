@@ -4,10 +4,10 @@ import { Routine } from '../../types/index.ts';
 
 const routine = db.collection('routine');
 
-@Controller('/api/v1')
+@Controller('/api/v1/routines')
 export class RoutineController {
-    constructor() {}
-    @Get('/routines')
+    constructor() { }
+    @Get()
     async getAll() {
         const data: Routine[] = await routine.find();
 
@@ -17,7 +17,7 @@ export class RoutineController {
         }
     }
 
-    @Get('/routines/:id')
+    @Get('/:id')
     async getItem(@Param('id') id: string) {
         const data: Routine = await routine.findOne({ _id: { $oid: id } });
 
@@ -27,7 +27,7 @@ export class RoutineController {
         }
     }
 
-    @Post('/routines')
+    @Post()
     async createItem(@Body() body: any) {
         let decoded = JSON.parse(new TextDecoder('utf-8').decode(body));
         const id: Routine = await routine.insertOne(decoded);
@@ -35,16 +35,17 @@ export class RoutineController {
         return id;
     }
 
-    @Delete('/routines/:id')
+    @Delete('/:id')
     async deleteItem(@Param('id') id: string) {
         const result: any = await routine.deleteOne({ _id: { $oid: id } });
 
         return result;
     }
 
-    @Put('/routines/:id')
+    @Put('/:id')
     async updateItem(@Body() body: any, @Param('id') id: string) {
-        const result: any = await routine.updateOne({ _id: { $oid: id } }, { $set: body });
+        let decoded = JSON.parse(new TextDecoder('utf-8').decode(body));
+        const result: any = await routine.updateOne({ _id: { $oid: id } }, { $set: decoded });
         return result;
     }
 }

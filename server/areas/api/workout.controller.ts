@@ -4,10 +4,10 @@ import { Workout } from '../../types/index.ts';
 
 const workout = db.collection('workout');
 
-@Controller('/api/v1')
+@Controller('/api/v1/workouts')
 export class WorkoutController {
-    constructor() {}
-    @Get('/workouts')
+    constructor() { }
+    @Get()
     async getAll() {
         const data: Workout[] = await workout.find();
 
@@ -16,7 +16,7 @@ export class WorkoutController {
         }
     }
 
-    @Get('/workouts/:id')
+    @Get('/:id')
     async getItem(@Param('id') id: string) {
         const data: Workout = await workout.findOne({ _id: { $oid: id } });
 
@@ -33,16 +33,17 @@ export class WorkoutController {
         return id;
     }
 
-    @Delete('/workouts/:id')
+    @Delete('/:id')
     async deleteItem(@Param('id') id: string) {
         const result: any = await workout.deleteOne({ _id: { $oid: id } });
 
         return result;
     }
 
-    @Put('/workouts/:id')
+    @Put('/:id')
     async updateItem(@Body() body: any, @Param('id') id: string) {
-        const result: any = await workout.updateOne({ _id: { $oid: id } }, { $set: body });
+        let decoded = JSON.parse(new TextDecoder('utf-8').decode(body));
+        const result: any = await workout.updateOne({ _id: { $oid: id } }, { $set: decoded });
         return result;
     }
 }
