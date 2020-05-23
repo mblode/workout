@@ -1,2 +1,2 @@
 run:
-	deno run -A --unstable index.ts
+	deno run -A --unstable --config tsconfig.app.json index.ts

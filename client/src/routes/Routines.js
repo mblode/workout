@@ -12,6 +12,7 @@ const routinesQuery = selector({
         if (response.error) {
             throw response.error;
         }
+        console.log(response.data);
         return response.data;
     },
 });
@@ -21,8 +22,8 @@ const RoutinesList = () => {
 
     return (
         <div>
-            {routinesState.map((item) => (
-                <RoutineItem item={item} key={item._id} />
+            {routinesState.map((item, i) => (
+                <RoutineItem item={item} key={i} />
             ))}
         </div>
     );

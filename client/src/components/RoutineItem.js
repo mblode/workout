@@ -1,6 +1,5 @@
 import React from 'react';
 
 export default function RoutineItem({ item }) {
-    console.log(item);
-    return <div>{item.username && <p>{item.username}</p>}</div>;
+    return <div>{item.title && <p>{item.title}</p>} button</div>;
 }
