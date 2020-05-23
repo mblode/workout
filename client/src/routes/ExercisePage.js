@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from '../helpers/axiosConfig';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import ErrorBoundary from '../components/ErrorBoundary';
 
 const exerciseQuery = async (id) => {
@@ -12,6 +12,8 @@ const exerciseQuery = async (id) => {
 };
 
 const ExerciseForm = ({ id }) => {
+    let history = useHistory();
+
     const exercise = exerciseQuery(id);
 
     const handleSubmit = async (e) => {
@@ -23,11 +25,22 @@ const ExerciseForm = ({ id }) => {
             category: formData.get('category'),
         };
         const response = await axios.put(`exercises/${id}`, data);
+
+        if (response.error) {
+            throw response.error;
+        }
+
+        history.push('/exercises');
         console.log(response.data);
     };
 
     const del = async () => {
-        await axios.delete(`routines/${id}`);
+        const response = await axios.delete(`routines/${id}`);
+        if (response.error) {
+            throw response.error;
+        }
+
+        history.push('/exercises');
     };
 
     return (
@@ -47,6 +60,7 @@ const ExerciseForm = ({ id }) => {
                 </div>
                 <button>Submit</button>
                 <button onClick={del}>Delete</button>
+                <Link to='/exercises'>Cancel</Link>
             </form>
         </div>
     );

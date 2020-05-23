@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import axios from '../helpers/axiosConfig';
 
 export default function ExerciseNew() {
+    let history = useHistory();
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -15,7 +17,11 @@ export default function ExerciseNew() {
 
         console.log(data);
         const response = await axios.post('exercises', data);
-        console.log(response.data);
+        if (response.error) {
+            throw response.error;
+        }
+
+        history.push('/exercises');
     };
 
     return (
@@ -37,6 +43,7 @@ export default function ExerciseNew() {
                 </div>
 
                 <button>Submit</button>
+                <Link to='/exercises'>Cancel</Link>
             </form>
         </div>
     );

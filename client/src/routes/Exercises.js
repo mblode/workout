@@ -6,13 +6,12 @@ import axios from '../helpers/axiosConfig';
 import { Link } from 'react-router-dom';
 
 const exercisesQuery = selector({
-    key: 'exercises',
+    key: 'exercisesListState',
     get: async ({ get }) => {
         const response = await axios.get('exercises');
         if (response.error) {
             throw response.error;
         }
-        console.log(response.data);
         return response.data;
     },
 });
