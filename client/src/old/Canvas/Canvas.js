@@ -8,7 +8,7 @@ export default function Canvas() {
     const canvasList = useRecoilValue(canvasListState);
 
     return (
-        <div style={{ backgroundColor: settings.backgroundColor, color: settings.color }} className='canvas'>
+        <div style={{ backgroundColor: settings.backgroundColor, color: settings.color }}>
             {canvasList.map((canvasItem) => (
                 <CanvasItem id={canvasItem.id} key={canvasItem.id} />
             ))}

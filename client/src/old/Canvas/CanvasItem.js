@@ -11,7 +11,6 @@ export default function CanvasItem({ id }) {
 
     return (
         <div
-            className='canvas-item'
             style={{
                 left: item.x + 'px',
                 top: item.y + 'px',

@@ -14,7 +14,7 @@ export default function PropertyItem({ id }) {
     };
 
     return (
-        <div className='property-item'>
+        <div>
             <Field value={item.x} name='x' label='X position' type='number' onChange={onChange} />
             <Field value={item.y} name='y' label='Y position' type='number' onChange={onChange} />
             <Field value={item.z} name='z' label='Z-index' type='number' onChange={onChange} />

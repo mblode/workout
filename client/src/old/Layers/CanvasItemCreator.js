@@ -16,9 +16,7 @@ export default function CanvasItemCreator() {
 
     return (
         <div>
-            <button className='btn btn-primary' onClick={addItem}>
-                Create item
-            </button>
+            <button onClick={addItem}>Create item</button>
         </div>
     );
 }

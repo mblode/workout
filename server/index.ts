@@ -1,6 +1,6 @@
 import * as path from 'https://deno.land/std/path/mod.ts';
 import { Application, send } from 'https://deno.land/x/oak/mod.ts';
-// import { oakCors } from 'https://deno.land/x/cors/mod.ts';
+import { oakCors } from 'https://deno.land/x/cors/mod.ts';
 import { APP_HOST, APP_PORT } from './config/index.ts';
 import router from './routes/index.ts';
 import notFound from './utils/notFound.ts';
@@ -10,7 +10,7 @@ import logger from './utils/logger.ts';
 
 const app = new Application();
 
-// app.use(oakCors());
+app.use(oakCors());
 
 // app.use(function (context, next) {
 //     context.response.headers.set('Access-Control-Allow-Origin', 'http://localhost:3000');

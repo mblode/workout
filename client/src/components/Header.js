@@ -5,37 +5,37 @@ export default function Header() {
     return (
         <header>
             <nav>
-                <Link to='/' className='navbar-brand'>
+                <Link to='/'>
                     <div>Workout</div>
                 </Link>
 
-                <div className='navbar-wrap'>
-                    <ul className='mx-auto'>
-                        <NavLink exact={true} to='/' className='nav-link' activeClassName='active'>
+                <div>
+                    <ul>
+                        <NavLink exact={true} to='/'>
                             <span>Home</span>
                         </NavLink>
 
-                        <NavLink to='/workouts' className='nav-link' activeClassName='active'>
+                        <NavLink to='/workouts'>
                             <span>Workouts</span>
                         </NavLink>
 
-                        <NavLink to='/exercises' className='nav-link' activeClassName='active'>
+                        <NavLink to='/exercises'>
                             <span>Exercises</span>
                         </NavLink>
 
-                        <NavLink to='/routines' className='nav-link' activeClassName='active'>
+                        <NavLink to='/routines'>
                             <span>Routines</span>
                         </NavLink>
 
-                        <NavLink to='/settings' className='nav-link' activeClassName='active'>
+                        <NavLink to='/settings'>
                             <span>Settings</span>
                         </NavLink>
 
-                        <NavLink to='/sign-in' className='nav-link' activeClassName='active'>
+                        <NavLink to='/sign-in'>
                             <span>Sign in</span>
                         </NavLink>
 
-                        <NavLink to='/sign-up' className='nav-link' activeClassName='active'>
+                        <NavLink to='/sign-up'>
                             <span>Sign up</span>
                         </NavLink>
                     </ul>

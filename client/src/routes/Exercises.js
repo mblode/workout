@@ -1,9 +1,10 @@
-import React, { ErrorBoundary } from 'react';
+import React from 'react';
 import { useRecoilValue, selector } from 'recoil';
 import ExerciseItem from '../components/ExerciseItem';
+import ErrorBoundary from '../components/ErrorBoundary';
 import axios from '../helpers/axiosConfig';
 
-const exercises = selector({
+const exercisesQuery = selector({
     key: 'exercises',
     get: async ({ get }) => {
         const response = await axios.get('exercises');
@@ -14,36 +15,29 @@ const exercises = selector({
     },
 });
 
-const ExercisesList = async () => {
-    // const exercisesState = useRecoilValue(exercises);
-
-    const response = await axios.get('exercises');
-    // if (response.error) {
-    //     console.log(response.error);
-    // }
-    console.log(response);
+const ExercisesList = () => {
+    const exercisesState = useRecoilValue(exercisesQuery);
 
     return (
-        <div className=''>
-            {/* {exercisesState.map((item) => (
-                <ExerciseItem item={item} key={item.id} />
-            ))} */}
+        <div>
+            {exercisesState.map((item) => (
+                <ExerciseItem item={item} key={item._id} />
+            ))}
         </div>
     );
 };
 
 export default function Exercises() {
-    ExercisesList();
-
     return (
         <div>
             <h1>Exercises</h1>
 
             <div>
-                {/* <ErrorBoundary>
-                    <React.Suspense fallback={<div>Loading...</div>}> */}
-                {/* </React.Suspense>
-                </ErrorBoundary> */}
+                <ErrorBoundary>
+                    <React.Suspense fallback={<div>Loading...</div>}>
+                        <ExercisesList />
+                    </React.Suspense>
+                </ErrorBoundary>
             </div>
         </div>
     );

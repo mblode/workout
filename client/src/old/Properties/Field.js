@@ -6,15 +6,9 @@ export default function Field(props) {
     };
 
     return (
-        <div className='form-group'>
+        <div>
             <label htmlFor={props.name}>{props.label}</label>
-            <input
-                className='form-control'
-                name={props.name}
-                type={props.type}
-                value={props.value}
-                onChange={onChange}
-            />
+            <input name={props.name} type={props.type} value={props.value} onChange={onChange} />
         </div>
     );
 }

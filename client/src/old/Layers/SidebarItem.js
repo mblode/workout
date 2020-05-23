@@ -6,7 +6,7 @@ export default function SidebarItem({ id }) {
     const item = useRecoilValue(itemWithID(id));
 
     return (
-        <div className='sidebar-item'>
+        <div>
             <code>
                 <pre>{JSON.stringify(item)}</pre>
             </code>

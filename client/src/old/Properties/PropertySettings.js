@@ -14,7 +14,7 @@ export default function PropertySettings() {
     };
 
     return (
-        <div className='property-item'>
+        <div>
             <Field
                 value={settings.backgroundColor}
                 name='backgroundColor'

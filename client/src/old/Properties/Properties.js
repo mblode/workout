@@ -8,7 +8,7 @@ export default function Properties({ id }) {
     const canvasList = useRecoilValue(canvasListState);
 
     return (
-        <div className='properties'>
+        <div>
             <PropertyColor />
             {canvasList.map((canvasItem) => (
                 <PropertyItem id={canvasItem.id} key={canvasItem.id} />
